@@ -1,0 +1,35 @@
+---
+import "@unocss/reset/tailwind.css";
+import getProps from "@js/getProps";
+import NavBar from "@components/NavBar.astro";
+
+const {
+    title,
+    class: className,
+    ogType,
+    ogSiteName,
+    ogDescription,
+} = getProps(Astro.props);
+---
+
+<html lang="en" class="bg-gradient-to-b from-main to-alt text-normal font-medium overflow-hidden h-screen font-sans">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta property="og:type" content={ogType ?? "website"} />
+        <meta property="og:title" content={ogSiteName ?? "Vendetta"} />
+        <meta
+            property="og:description"
+            content={ogDescription ?? "A client mod for Discord's mobile apps."}
+        />
+        <title>{title} - Vendetta</title>
+        <slot name="head" />
+    </head>
+
+    <body class={`absolute flex justify-center z-999 h-full w-full overflow-auto scrollbar scrollbar-rounded scrollbar-track-color-transparent scrollbar-thumb-color-accent scrollbar-w-1 ${className}`}>
+        <main class="p-4 sm:w-[75%] lt-sm:w-full max-w-[1920px]">
+            <NavBar />
+            <span class="flex flex-col items-center pb-4"><slot /></span>
+        </main>
+    </body>
+</html>

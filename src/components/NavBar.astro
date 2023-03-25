@@ -1,0 +1,13 @@
+---
+import NavBarItem from "@components/NavBarItem.astro";
+import LinkIcon from "@components/LinkIcon.astro";
+import routes from "@res/routes.json";
+---
+
+<div class="p-2 flex gap-4 items-center">
+    {(routes as Route[]).map(route => <NavBarItem name={route.name} href={route.path} title={route.title} />)}
+    <div class="flex gap-4 ml-auto">
+        <LinkIcon iconName="discord" alt="Discord Server" href="//discord.gg/n9QQ4XhhJP" />
+        <LinkIcon iconName="github" alt="GitHub" href="//github.com/vendetta-mod" />
+    </div>
+</div>

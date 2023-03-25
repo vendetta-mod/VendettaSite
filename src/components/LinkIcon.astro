@@ -1,0 +1,14 @@
+---
+import Icon from "astro-icon";
+
+export interface Props {
+    href: string;
+    iconName: string;
+    pack?: string;
+    alt?: string;
+}
+
+const { href, iconName, pack, alt } = Astro.props;
+---
+
+<a target="_blank" class="transition-opacity text-normal! hover:(opacity-50)" href={href}><Icon class="w-8 h-8" pack={pack ?? "simple-icons"} name={iconName} alt={alt} /></a>

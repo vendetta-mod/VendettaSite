@@ -1,0 +1,11 @@
+[
+    {
+        "name": "Vendetta",
+        "path": "/",
+        "title": true
+    },
+    {
+        "name": "Install",
+        "path": "/install"
+    }
+]

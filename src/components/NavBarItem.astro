@@ -1,0 +1,17 @@
+---
+export interface Props {
+    name: string;
+    href: string;
+    title?: boolean;
+}
+
+const { name, href, title } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const fixedPath =
+    currentPath.length > 1 && currentPath.endsWith("/")
+        ? currentPath.slice(0, -1)
+        : currentPath;
+---
+
+<a href={href} class={`transition-opacity flex flex-row items-center hover:(opacity-50) ${title && "text-2xl font-bold"} ${title ? "text-header!" : fixedPath === href ? "text-normal!" : "text-muted!"}`}>{name}</a>

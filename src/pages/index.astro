@@ -1,81 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import FeatureCard from "@components/FeatureCard.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const features = [
+    {
+        title: "Write once, run anywhere",
+        description: "Vendetta works on both iOS and Android, meaning plugins and themes only have to be written once, and work everywhere! This makes the experience better for users, and developers!",
+        src: "https://media.discordapp.net/attachments/1087835146151010324/1088942509696241704/C248ECB3-29B3-4397-97CC-1FD19C58C072.jpg?width=600&height=600",
+    },
+    {
+        title: "Lightweight",
+        description: "Vendetta doesn't do anything more than it needs to, ensuring compatibility with new Discord versions as they are released, and not slowing down the app.",
+        src: "https://cdn.discordapp.com/attachments/928361155011969024/1089354566845349998/image.png",
+    },
+    {
+        title: "Developer Experience",
+        description: "Vendetta's robust API is simplistic and easy to use, making developing plugins a pleasant experience even for those who are inexperienced.",
+        src: "https://media.discordapp.net/attachments/1015931590741872712/1089356893815844864/images_native_empties_empty_mentions.png",
+    }
+]
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+<BaseLayout title="Home">
+    <div class="text-center my-18">
+        <h1 class="sm:text-6xl lt-sm:text-5xl mb-4">The mod for <span class="color-transparent bg-gradient-to-r bg-clip-text from-oldblurple to-blurple">Discord</span>'s mobile apps.</h1>
+        <p class="sm:text-2xl lt-sm:text-xl">Works on iOS and Android.</p>
+    </div>
+    <div class="flex flex-col gap-4 mb-4 w-full items-center">
+        {features.map(feature => <FeatureCard title={feature.title} description={feature.description} src={feature.src} />)}
+    </div>
+    <p class="text-2xl">So, what are you waiting for? <a href="/install">Install today!</a></p>
+</BaseLayout>

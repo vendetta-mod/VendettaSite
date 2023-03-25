@@ -1,0 +1,54 @@
+.astro-code {
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+::selection {
+    background: "theme.colors.selection";
+}
+
+a {
+    transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    color: "theme.colors.sapphire";
+    text-decoration: unset;
+}
+
+a:hover {
+    color: "theme.colors.blue";
+}
+
+h1 {
+    color: "theme.colors.header";
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+h2 {
+    color: "theme.colors.header";
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+}
+
+h3 {
+    color: "theme.colors.header";
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+h4 {
+    color: "theme.colors.header";
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-top: 0.25rem;
+}
+
+code {
+    background-color: "theme.colors.mantle";
+    border-radius: 0.2rem;
+    padding: 0.1rem;
+    font-family: "theme.fontFamily.mono";
+}

@@ -11,9 +11,9 @@ const { title, description, icons } = Astro.props;
 ---
 
 <div class="bg-accent bg-opacity-5 flex flex-col gap-2 p-8 rounded-xl sm:(w-[75%] min-w-2xl) lt-sm:(items-center text-center w-full)">
-    <div class="flex gap-2 rounded-xl">
-        {icons.map(icon => <Icon name={icon} width={64} height={64} />)}
+    <div class="flex align-middle lt-sm:(flex-col-reverse items-center)">
+        <h2 class="text-4xl">{title}</h2>
+        <div class="flex gap-2 rounded-xl sm:ml-auto">{icons.map(icon => <Icon name={icon} width={64} height={64} />)}</div>
     </div>
-    <h2 class="text-4xl">{title}</h2>
     <p class="text-lg">{description}</p>
 </div>

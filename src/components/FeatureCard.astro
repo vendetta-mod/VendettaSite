@@ -1,17 +1,19 @@
 ---
+import { Icon } from "astro-icon";
+
 export interface Props {
     title: string;
     description: string;
-    src: string;
+    icons: string[];
 }
 
-const { title, description, src } = Astro.props;
+const { title, description, icons } = Astro.props;
 ---
 
-<div class="bg-accent bg-opacity-5 flex gap-4 p-8 rounded-xl items-center sm:(w-[75%] min-w-2xl flex-row) lt-sm:(text-center w-full flex-col)">
-    <div class="flex flex-col gap-2">
-        <h2 class="text-4xl">{title}</h2>
-        <p class="text-lg">{description}</p>
+<div class="bg-accent bg-opacity-5 flex flex-col gap-2 p-8 rounded-xl sm:(w-[75%] min-w-2xl) lt-sm:(items-center text-center w-full)">
+    <div class="flex gap-2 rounded-xl">
+        {icons.map(icon => <Icon name={icon} width={64} height={64} />)}
     </div>
-    <img class="sm:(ml-auto w-[200px] h-[200px]) lt-sm:(mt-8) rounded-xl" width={400} height={400} src={src}>
+    <h2 class="text-4xl">{title}</h2>
+    <p class="text-lg">{description}</p>
 </div>

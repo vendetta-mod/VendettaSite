@@ -22,14 +22,15 @@ const {
             property="og:description"
             content={ogDescription ?? "A client mod for Discord's mobile apps."}
         />
+        <link rel="icon" type="image/svg" href="/favicon.svg">
         <title>{title} - Vendetta</title>
         <slot name="head" />
     </head>
 
-    <body class={`absolute flex justify-center z-999 h-full w-full overflow-auto scrollbar scrollbar-rounded scrollbar-track-color-transparent scrollbar-thumb-color-accent scrollbar-w-1 ${className}`}>
+    <body class={`absolute flex justify-center z-999 h-full w-full overflow-auto scrollbar scrollbar-rounded scrollbar-track-color-transparent scrollbar-thumb-color-accent scrollbar-w-1 ${className ?? ""}`}>
         <main class="p-4 sm:w-[75%] lt-sm:w-full max-w-[1920px]">
             <NavBar />
-            <span class="flex flex-col items-center pb-4"><slot /></span>
+            <span class="flex flex-col pb-4"><slot /></span>
         </main>
     </body>
 </html>

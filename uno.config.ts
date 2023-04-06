@@ -33,7 +33,6 @@ export default defineConfig({
             }
         }
     ],
-
     theme: {
         colors: {
             rosewater: "#f2d5cf",
